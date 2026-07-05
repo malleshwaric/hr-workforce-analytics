@@ -1,0 +1,197 @@
+role_id,role_title,job_level,department_id,min_salary,max_salary
+1,Junior Software Engineer,Junior,1,45000,70000
+2,Mid Software Engineer,Mid,1,70000,110000
+3,Senior Software Engineer,Senior,1,110000,160000
+4,Lead Software Engineer,Lead,1,140000,190000
+5,Software Engineer Manager,Manager,1,130000,180000
+6,Software Engineer Director,Director,1,180000,250000
+7,Software Engineer VP,VP,1,240000,350000
+8,Junior Backend Engineer,Junior,1,45000,70000
+9,Mid Backend Engineer,Mid,1,70000,110000
+10,Senior Backend Engineer,Senior,1,110000,160000
+11,Lead Backend Engineer,Lead,1,140000,190000
+12,Backend Engineer Manager,Manager,1,130000,180000
+13,Backend Engineer Director,Director,1,180000,250000
+14,Backend Engineer VP,VP,1,240000,350000
+15,Junior Frontend Engineer,Junior,1,45000,70000
+16,Mid Frontend Engineer,Mid,1,70000,110000
+17,Senior Frontend Engineer,Senior,1,110000,160000
+18,Lead Frontend Engineer,Lead,1,140000,190000
+19,Frontend Engineer Manager,Manager,1,130000,180000
+20,Frontend Engineer Director,Director,1,180000,250000
+21,Frontend Engineer VP,VP,1,240000,350000
+22,Junior DevOps Engineer,Junior,1,45000,70000
+23,Mid DevOps Engineer,Mid,1,70000,110000
+24,Senior DevOps Engineer,Senior,1,110000,160000
+25,Lead DevOps Engineer,Lead,1,140000,190000
+26,DevOps Engineer Manager,Manager,1,130000,180000
+27,DevOps Engineer Director,Director,1,180000,250000
+28,DevOps Engineer VP,VP,1,240000,350000
+29,Junior Product Manager,Junior,2,45000,70000
+30,Mid Product Manager,Mid,2,70000,110000
+31,Senior Product Manager,Senior,2,110000,160000
+32,Lead Product Manager,Lead,2,140000,190000
+33,Product Manager Manager,Manager,2,130000,180000
+34,Product Manager Director,Director,2,180000,250000
+35,Product Manager VP,VP,2,240000,350000
+36,Junior Associate PM,Junior,2,45000,70000
+37,Mid Associate PM,Mid,2,70000,110000
+38,Senior Associate PM,Senior,2,110000,160000
+39,Lead Associate PM,Lead,2,140000,190000
+40,Associate PM Manager,Manager,2,130000,180000
+41,Associate PM Director,Director,2,180000,250000
+42,Associate PM VP,VP,2,240000,350000
+43,Junior Data Analyst,Junior,3,45000,70000
+44,Mid Data Analyst,Mid,3,70000,110000
+45,Senior Data Analyst,Senior,3,110000,160000
+46,Lead Data Analyst,Lead,3,140000,190000
+47,Data Analyst Manager,Manager,3,130000,180000
+48,Data Analyst Director,Director,3,180000,250000
+49,Data Analyst VP,VP,3,240000,350000
+50,Junior Data Scientist,Junior,3,45000,70000
+51,Mid Data Scientist,Mid,3,70000,110000
+52,Senior Data Scientist,Senior,3,110000,160000
+53,Lead Data Scientist,Lead,3,140000,190000
+54,Data Scientist Manager,Manager,3,130000,180000
+55,Data Scientist Director,Director,3,180000,250000
+56,Data Scientist VP,VP,3,240000,350000
+57,Junior Analytics Engineer,Junior,3,45000,70000
+58,Mid Analytics Engineer,Mid,3,70000,110000
+59,Senior Analytics Engineer,Senior,3,110000,160000
+60,Lead Analytics Engineer,Lead,3,140000,190000
+61,Analytics Engineer Manager,Manager,3,130000,180000
+62,Analytics Engineer Director,Director,3,180000,250000
+63,Analytics Engineer VP,VP,3,240000,350000
+64,Junior Account Executive,Junior,4,45000,70000
+65,Mid Account Executive,Mid,4,70000,110000
+66,Senior Account Executive,Senior,4,110000,160000
+67,Lead Account Executive,Lead,4,140000,190000
+68,Account Executive Manager,Manager,4,130000,180000
+69,Account Executive Director,Director,4,180000,250000
+70,Account Executive VP,VP,4,240000,350000
+71,Junior Sales Development Rep,Junior,4,45000,70000
+72,Mid Sales Development Rep,Mid,4,70000,110000
+73,Senior Sales Development Rep,Senior,4,110000,160000
+74,Lead Sales Development Rep,Lead,4,140000,190000
+75,Sales Development Rep Manager,Manager,4,130000,180000
+76,Sales Development Rep Director,Director,4,180000,250000
+77,Sales Development Rep VP,VP,4,240000,350000
+78,Junior Sales Manager,Junior,4,45000,70000
+79,Mid Sales Manager,Mid,4,70000,110000
+80,Senior Sales Manager,Senior,4,110000,160000
+81,Lead Sales Manager,Lead,4,140000,190000
+82,Sales Manager Manager,Manager,4,130000,180000
+83,Sales Manager Director,Director,4,180000,250000
+84,Sales Manager VP,VP,4,240000,350000
+85,Junior Marketing Manager,Junior,5,45000,70000
+86,Mid Marketing Manager,Mid,5,70000,110000
+87,Senior Marketing Manager,Senior,5,110000,160000
+88,Lead Marketing Manager,Lead,5,140000,190000
+89,Marketing Manager Manager,Manager,5,130000,180000
+90,Marketing Manager Director,Director,5,180000,250000
+91,Marketing Manager VP,VP,5,240000,350000
+92,Junior Growth Analyst,Junior,5,45000,70000
+93,Mid Growth Analyst,Mid,5,70000,110000
+94,Senior Growth Analyst,Senior,5,110000,160000
+95,Lead Growth Analyst,Lead,5,140000,190000
+96,Growth Analyst Manager,Manager,5,130000,180000
+97,Growth Analyst Director,Director,5,180000,250000
+98,Growth Analyst VP,VP,5,240000,350000
+99,Junior Content Strategist,Junior,5,45000,70000
+100,Mid Content Strategist,Mid,5,70000,110000
+101,Senior Content Strategist,Senior,5,110000,160000
+102,Lead Content Strategist,Lead,5,140000,190000
+103,Content Strategist Manager,Manager,5,130000,180000
+104,Content Strategist Director,Director,5,180000,250000
+105,Content Strategist VP,VP,5,240000,350000
+106,Junior Customer Success Manager,Junior,6,45000,70000
+107,Mid Customer Success Manager,Mid,6,70000,110000
+108,Senior Customer Success Manager,Senior,6,110000,160000
+109,Lead Customer Success Manager,Lead,6,140000,190000
+110,Customer Success Manager Manager,Manager,6,130000,180000
+111,Customer Success Manager Director,Director,6,180000,250000
+112,Customer Success Manager VP,VP,6,240000,350000
+113,Junior Support Specialist,Junior,6,45000,70000
+114,Mid Support Specialist,Mid,6,70000,110000
+115,Senior Support Specialist,Senior,6,110000,160000
+116,Lead Support Specialist,Lead,6,140000,190000
+117,Support Specialist Manager,Manager,6,130000,180000
+118,Support Specialist Director,Director,6,180000,250000
+119,Support Specialist VP,VP,6,240000,350000
+120,Junior HR Business Partner,Junior,7,45000,70000
+121,Mid HR Business Partner,Mid,7,70000,110000
+122,Senior HR Business Partner,Senior,7,110000,160000
+123,Lead HR Business Partner,Lead,7,140000,190000
+124,HR Business Partner Manager,Manager,7,130000,180000
+125,HR Business Partner Director,Director,7,180000,250000
+126,HR Business Partner VP,VP,7,240000,350000
+127,Junior Recruiter,Junior,7,45000,70000
+128,Mid Recruiter,Mid,7,70000,110000
+129,Senior Recruiter,Senior,7,110000,160000
+130,Lead Recruiter,Lead,7,140000,190000
+131,Recruiter Manager,Manager,7,130000,180000
+132,Recruiter Director,Director,7,180000,250000
+133,Recruiter VP,VP,7,240000,350000
+134,Junior L&D Specialist,Junior,7,45000,70000
+135,Mid L&D Specialist,Mid,7,70000,110000
+136,Senior L&D Specialist,Senior,7,110000,160000
+137,Lead L&D Specialist,Lead,7,140000,190000
+138,L&D Specialist Manager,Manager,7,130000,180000
+139,L&D Specialist Director,Director,7,180000,250000
+140,L&D Specialist VP,VP,7,240000,350000
+141,Junior Financial Analyst,Junior,8,45000,70000
+142,Mid Financial Analyst,Mid,8,70000,110000
+143,Senior Financial Analyst,Senior,8,110000,160000
+144,Lead Financial Analyst,Lead,8,140000,190000
+145,Financial Analyst Manager,Manager,8,130000,180000
+146,Financial Analyst Director,Director,8,180000,250000
+147,Financial Analyst VP,VP,8,240000,350000
+148,Junior Accountant,Junior,8,45000,70000
+149,Mid Accountant,Mid,8,70000,110000
+150,Senior Accountant,Senior,8,110000,160000
+151,Lead Accountant,Lead,8,140000,190000
+152,Accountant Manager,Manager,8,130000,180000
+153,Accountant Director,Director,8,180000,250000
+154,Accountant VP,VP,8,240000,350000
+155,Junior FP&A Manager,Junior,8,45000,70000
+156,Mid FP&A Manager,Mid,8,70000,110000
+157,Senior FP&A Manager,Senior,8,110000,160000
+158,Lead FP&A Manager,Lead,8,140000,190000
+159,FP&A Manager Manager,Manager,8,130000,180000
+160,FP&A Manager Director,Director,8,180000,250000
+161,FP&A Manager VP,VP,8,240000,350000
+162,Junior Legal Counsel,Junior,9,45000,70000
+163,Mid Legal Counsel,Mid,9,70000,110000
+164,Senior Legal Counsel,Senior,9,110000,160000
+165,Lead Legal Counsel,Lead,9,140000,190000
+166,Legal Counsel Manager,Manager,9,130000,180000
+167,Legal Counsel Director,Director,9,180000,250000
+168,Legal Counsel VP,VP,9,240000,350000
+169,Junior Compliance Analyst,Junior,9,45000,70000
+170,Mid Compliance Analyst,Mid,9,70000,110000
+171,Senior Compliance Analyst,Senior,9,110000,160000
+172,Lead Compliance Analyst,Lead,9,140000,190000
+173,Compliance Analyst Manager,Manager,9,130000,180000
+174,Compliance Analyst Director,Director,9,180000,250000
+175,Compliance Analyst VP,VP,9,240000,350000
+176,Junior Operations Analyst,Junior,10,45000,70000
+177,Mid Operations Analyst,Mid,10,70000,110000
+178,Senior Operations Analyst,Senior,10,110000,160000
+179,Lead Operations Analyst,Lead,10,140000,190000
+180,Operations Analyst Manager,Manager,10,130000,180000
+181,Operations Analyst Director,Director,10,180000,250000
+182,Operations Analyst VP,VP,10,240000,350000
+183,Junior Project Manager,Junior,10,45000,70000
+184,Mid Project Manager,Mid,10,70000,110000
+185,Senior Project Manager,Senior,10,110000,160000
+186,Lead Project Manager,Lead,10,140000,190000
+187,Project Manager Manager,Manager,10,130000,180000
+188,Project Manager Director,Director,10,180000,250000
+189,Project Manager VP,VP,10,240000,350000
+190,Junior Ops Manager,Junior,10,45000,70000
+191,Mid Ops Manager,Mid,10,70000,110000
+192,Senior Ops Manager,Senior,10,110000,160000
+193,Lead Ops Manager,Lead,10,140000,190000
+194,Ops Manager Manager,Manager,10,130000,180000
+195,Ops Manager Director,Director,10,180000,250000
+196,Ops Manager VP,VP,10,240000,350000

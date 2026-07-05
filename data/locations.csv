@@ -1,0 +1,13 @@
+location_id,city,country,region,office_type
+1,New York,USA,Americas,HQ
+2,San Francisco,USA,Americas,Regional
+3,Toronto,Canada,Americas,Regional
+4,São Paulo,Brazil,Americas,Remote Hub
+5,London,UK,EMEA,Regional
+6,Berlin,Germany,EMEA,Regional
+7,Dubai,UAE,EMEA,Remote Hub
+8,Johannesburg,South Africa,EMEA,Remote Hub
+9,Bengaluru,India,APAC,Regional
+10,Singapore,Singapore,APAC,Regional
+11,Tokyo,Japan,APAC,Remote Hub
+12,Sydney,Australia,APAC,Remote Hub

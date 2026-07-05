@@ -1,0 +1,11 @@
+department_id,department_name,division,budget_annual,head_count_target
+1,Engineering,Product,12000000,120
+2,Product Management,Product,3000000,25
+3,Data & Analytics,Product,4000000,40
+4,Sales,Revenue,8000000,80
+5,Marketing,Revenue,5000000,45
+6,Customer Success,Support,4500000,55
+7,Human Resources,Operations,2500000,20
+8,Finance,Operations,3000000,25
+9,Legal & Compliance,Operations,2000000,15
+10,Operations,Operations,3500000,35
