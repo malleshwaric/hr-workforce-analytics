@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>HR Workforce Analytics — Global</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#09080d;--surface:#100f18;--card:#151422;--border:#1e1c2e;--accent:#a78bfa;--accent2:#f59e0b;--accent3:#10b981;--danger:#ef4444;--blue:#3b82f6;--text:#e2e8f0;--muted:#64748b;--mono:'JetBrains Mono',monospace}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased}
+nav{position:sticky;top:0;z-index:100;background:rgba(9,8,13,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 5vw;display:flex;align-items:center;justify-content:space-between;height:56px}
+.nav-title{font-family:var(--mono);font-size:12px;color:var(--accent);letter-spacing:0.08em}
+.nav-badge{font-family:var(--mono);font-size:10px;padding:2px 8px;border-radius:4px;background:rgba(167,139,250,0.1);border:1px solid rgba(167,139,250,0.3);color:var(--accent);margin-left:12px}
+.nav-tabs{display:flex;gap:4px}
+.tab-btn{background:none;border:none;color:var(--muted);font-size:12px;font-weight:500;padding:6px 14px;border-radius:6px;cursor:pointer;transition:all 0.15s;font-family:'Inter',sans-serif}
+.tab-btn:hover{color:var(--text);background:var(--surface)}
+.tab-btn.active{color:var(--accent);background:rgba(167,139,250,0.1)}
+.hero{padding:48px 5vw 32px;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 90% 30%,rgba(167,139,250,0.06) 0%,transparent 70%);pointer-events:none}
+.hero-eyebrow{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px}
+.hero h1{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;letter-spacing:-0.02em;margin-bottom:8px}
+.hero h1 span{color:var(--accent)}.hero-sub{color:var(--muted);font-size:13px;max-width:560px}
+.page{display:none;padding:32px 5vw;animation:fadeIn 0.2s ease}.page.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;margin-bottom:32px}
+.kpi-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px;position:relative;overflow:hidden;transition:border-color 0.2s}
+.kpi-card:hover{border-color:rgba(167,139,250,0.3)}
+.kpi-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.kpi-card.purple::before{background:var(--accent)}.kpi-card.amber::before{background:var(--accent2)}.kpi-card.green::before{background:var(--accent3)}.kpi-card.red::before{background:var(--danger)}.kpi-card.blue::before{background:var(--blue)}
+.kpi-label{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px}
+.kpi-value{font-size:26px;font-weight:700;letter-spacing:-0.02em;margin-bottom:4px}
+.kpi-value.purple{color:var(--accent)}.kpi-value.amber{color:var(--accent2)}.kpi-value.green{color:var(--accent3)}.kpi-value.red{color:var(--danger)}.kpi-value.blue{color:var(--blue)}
+.kpi-sub{font-size:11px;color:var(--muted)}
+.chart-grid{display:grid;gap:20px;margin-bottom:24px}
+.chart-grid.cols2{grid-template-columns:1fr 1fr}.chart-grid.col-wide{grid-template-columns:2fr 1fr}
+@media(max-width:768px){.chart-grid.cols2,.chart-grid.col-wide{grid-template-columns:1fr}}
+.chart-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px}
+.chart-title{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px;font-family:var(--mono)}
+.chart-wrap{position:relative;height:260px}.chart-wrap.tall{height:320px}
+.page-header{margin-bottom:28px}.page-header h2{font-size:20px;font-weight:700;letter-spacing:-0.01em;margin-bottom:4px}.page-header p{color:var(--muted);font-size:13px}
+.insight{background:rgba(167,139,250,0.06);border:1px solid rgba(167,139,250,0.2);border-radius:8px;padding:14px 18px;margin-top:20px;font-size:13px;color:var(--muted);line-height:1.7}
+.insight strong{color:var(--text)}
+footer{border-top:1px solid var(--border);padding:20px 5vw;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+footer p{font-family:var(--mono);font-size:11px;color:var(--muted)}footer a{color:var(--accent);text-decoration:none}
+</style>
+</head>
+<body>
+<nav>
+  <div style="display:flex;align-items:center">
+    <span class="nav-title">👥 HR Workforce Analytics</span>
+    <span class="nav-badge">Global Dashboard</span>
+  </div>
+  <div class="nav-tabs">
+    <button class="tab-btn active" onclick="showPage('overview',this)">Overview</button>
+    <button class="tab-btn" onclick="showPage('attrition',this)">Attrition</button>
+    <button class="tab-btn" onclick="showPage('compensation',this)">Compensation</button>
+    <button class="tab-btn" onclick="showPage('performance',this)">Performance</button>
+    <button class="tab-btn" onclick="showPage('diversity',this)">Diversity</button>
+  </div>
+</nav>
+<div class="hero">
+  <div class="hero-eyebrow">Global · HR Analytics · Workforce Intelligence</div>
+  <h1>HR <span>Workforce</span> Analytics</h1>
+  <p class="hero-sub">People analytics for a 3,000-person global tech company across 12 offices in Americas, EMEA, and APAC — covering attrition, pay equity, performance, and diversity.</p>
+</div>
+
+<!-- OVERVIEW -->
+<div id="page-overview" class="page active">
+  <div class="page-header" style="margin-top:28px"><h2>Workforce Overview</h2><p>Headcount, attrition, and global distribution</p></div>
+  <div class="kpi-grid">
+    <div class="kpi-card purple"><div class="kpi-label">Active Headcount</div><div class="kpi-value purple">2,346</div><div class="kpi-sub">Across 12 offices</div></div>
+    <div class="kpi-card red"><div class="kpi-label">Attrition Rate</div><div class="kpi-value red">21.8%</div><div class="kpi-sub">Overall departure rate</div></div>
+    <div class="kpi-card green"><div class="kpi-label">Female Employees</div><div class="kpi-value green">44.5%</div><div class="kpi-sub">Of active headcount</div></div>
+    <div class="kpi-card amber"><div class="kpi-label">Remote Workers</div><div class="kpi-value amber">27.8%</div><div class="kpi-sub">Fully remote employees</div></div>
+    <div class="kpi-card blue"><div class="kpi-label">Avg Salary</div><div class="kpi-value blue">$169K</div><div class="kpi-sub">USD, all levels</div></div>
+    <div class="kpi-card green"><div class="kpi-label">Hybrid Workers</div><div class="kpi-value green">49.1%</div><div class="kpi-sub">Largest work mode</div></div>
+  </div>
+  <div class="chart-grid col-wide">
+    <div class="chart-card"><div class="chart-title">Attrition Rate by Department</div><div class="chart-wrap"><canvas id="deptAttrChart"></canvas></div></div>
+    <div class="chart-card"><div class="chart-title">Headcount by Region</div><div class="chart-wrap"><canvas id="regionChart"></canvas></div></div>
+  </div>
+  <div class="insight"><strong>Key Insight:</strong> Data & Analytics has the highest attrition at <strong>27.2%</strong> — a critical talent risk given its strategic importance. EMEA, Americas, and APAC are near-equally distributed (~779–792 each), reflecting intentional geographic balance.</div>
+</div>
+
+<!-- ATTRITION -->
+<div id="page-attrition" class="page">
+  <div class="page-header" style="margin-top:28px"><h2>Attrition Analysis</h2><p>Why people leave and which departments are most at risk</p></div>
+  <div class="kpi-grid">
+    <div class="kpi-card red"><div class="kpi-label">Total Exits</div><div class="kpi-value red">654</div><div class="kpi-sub">Of 3,000 employees</div></div>
+    <div class="kpi-card amber"><div class="kpi-label">Voluntary Exits</div><div class="kpi-value amber">380</div><div class="kpi-sub">58.1% of all exits</div></div>
+    <div class="kpi-card blue"><div class="kpi-label">Performance Exits</div><div class="kpi-value blue">121</div><div class="kpi-sub">18.5% of exits</div></div>
+    <div class="kpi-card purple"><div class="kpi-label">Layoffs</div><div class="kpi-value purple">103</div><div class="kpi-sub">15.7% of exits</div></div>
+  </div>
+  <div class="chart-grid cols2">
+    <div class="chart-card"><div class="chart-title">Exit Reasons Breakdown</div><div class="chart-wrap"><canvas id="reasonChart"></canvas></div></div>
+    <div class="chart-card"><div class="chart-title">Attrition Rate by Department</div><div class="chart-wrap"><canvas id="deptAttrChart2"></canvas></div></div>
+  </div>
+  <div class="insight"><strong>Key Insight:</strong> Voluntary attrition at <strong>58.1%</strong> of exits suggests a retention problem rather than a performance problem. Data & Analytics, HR, and Product Management — all knowledge-intensive roles — show the highest attrition, likely driven by competitive external market offers.</div>
+</div>
+
+<!-- COMPENSATION -->
+<div id="page-compensation" class="page">
+  <div class="page-header" style="margin-top:28px"><h2>Compensation Analysis</h2><p>Salary distribution by job level and gender pay equity</p></div>
+  <div class="kpi-grid">
+    <div class="kpi-card purple"><div class="kpi-label">Avg Salary (All)</div><div class="kpi-value purple">$169K</div><div class="kpi-sub">USD annual base</div></div>
+    <div class="kpi-card blue"><div class="kpi-label">Male Avg Salary</div><div class="kpi-value blue">$169.9K</div><div class="kpi-sub">Active employees</div></div>
+    <div class="kpi-card green"><div class="kpi-label">Female Avg Salary</div><div class="kpi-value green">$170.7K</div><div class="kpi-sub">Slightly higher!</div></div>
+    <div class="kpi-card green"><div class="kpi-label">Pay Gap</div><div class="kpi-value green">-0.5%</div><div class="kpi-sub">Women earn slightly more</div></div>
+  </div>
+  <div class="chart-grid cols2">
+    <div class="chart-card"><div class="chart-title">Average Salary by Job Level</div><div class="chart-wrap"><canvas id="levelSalChart"></canvas></div></div>
+    <div class="chart-card"><div class="chart-title">Male vs Female Avg Salary</div><div class="chart-wrap"><canvas id="genderSalChart"></canvas></div></div>
+  </div>
+  <div class="insight"><strong>Key Insight:</strong> No gender pay gap exists in this portfolio — women actually earn slightly more on average (+$810). VP-level compensation at <strong>$310K</strong> is 5.1× the Junior level ($61K), reflecting a steep but typical tech industry pay gradient.</div>
+</div>
+
+<!-- PERFORMANCE -->
+<div id="page-performance" class="page">
+  <div class="page-header" style="margin-top:28px"><h2>Performance Analysis</h2><p>Review ratings and department performance scores (2024)</p></div>
+  <div class="kpi-grid">
+    <div class="kpi-card green"><div class="kpi-label">Exceeds Rating</div><div class="kpi-value green">404</div><div class="kpi-sub">20.2% of reviews</div></div>
+    <div class="kpi-card blue"><div class="kpi-label">Meets Rating</div><div class="kpi-value blue">1,208</div><div class="kpi-sub">60.3% of reviews</div></div>
+    <div class="kpi-card amber"><div class="kpi-label">Below Rating</div><div class="kpi-value amber">276</div><div class="kpi-sub">13.8% of reviews</div></div>
+    <div class="kpi-card red"><div class="kpi-label">PIP</div><div class="kpi-value red">115</div><div class="kpi-sub">5.7% — Performance plan</div></div>
+  </div>
+  <div class="chart-grid cols2">
+    <div class="chart-card"><div class="chart-title">Performance Rating Distribution</div><div class="chart-wrap"><canvas id="ratingChart"></canvas></div></div>
+    <div class="chart-card"><div class="chart-title">Avg Score by Department (2024)</div><div class="chart-wrap"><canvas id="deptScoreChart"></canvas></div></div>
+  </div>
+  <div class="insight"><strong>Key Insight:</strong> Product Management leads with the highest avg performance score (<strong>3.46/5</strong>), while Marketing scores lowest at 3.25. The 20% "Exceeds" rate is healthy. Notably, Data & Analytics has both the highest attrition AND a below-average performance score — a talent crisis signal.</div>
+</div>
+
+<!-- DIVERSITY -->
+<div id="page-diversity" class="page">
+  <div class="page-header" style="margin-top:28px"><h2>Diversity & Inclusion</h2><p>Gender balance, work modes, and regional distribution</p></div>
+  <div class="kpi-grid">
+    <div class="kpi-card purple"><div class="kpi-label">Female %</div><div class="kpi-value purple">44.5%</div><div class="kpi-sub">Of active headcount</div></div>
+    <div class="kpi-card blue"><div class="kpi-label">Male %</div><div class="kpi-value blue">50.6%</div><div class="kpi-sub">Of active headcount</div></div>
+    <div class="kpi-card green"><div class="kpi-label">Non-Binary</div><div class="kpi-value green">4.9%</div><div class="kpi-sub">Represented in workforce</div></div>
+    <div class="kpi-card amber"><div class="kpi-label">Hybrid %</div><div class="kpi-value amber">49.1%</div><div class="kpi-sub">Most common work mode</div></div>
+  </div>
+  <div class="chart-grid cols2">
+    <div class="chart-card"><div class="chart-title">Gender Distribution</div><div class="chart-wrap"><canvas id="genderChart"></canvas></div></div>
+    <div class="chart-card"><div class="chart-title">Work Mode Distribution</div><div class="chart-wrap"><canvas id="workModeChart"></canvas></div></div>
+  </div>
+  <div class="insight"><strong>Key Insight:</strong> Gender balance is strong at 44.5% female with no pay gap. Hybrid work dominates at 49.1% — the company has successfully normalized flexible work. All three regions (Americas, EMEA, APAC) are near-perfectly balanced at ~779–792 headcount each.</div>
+</div>
+
+<footer>
+  <p>HR Workforce Analytics · Malleshwari C · <a href="https://github.com/malleshwaric/hr-workforce-analytics">GitHub</a></p>
+  <p>Data: 3K employees · 12 offices · Americas · EMEA · APAC</p>
+</footer>
+
+<script>
+function showPage(id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('page-'+id).classList.add('active');btn.classList.add('active')}
+Chart.defaults.color='#64748b';Chart.defaults.borderColor='#1e1c2e';Chart.defaults.font.family='Inter';
+const PURPLE='#a78bfa',AMBER='#f59e0b',GREEN='#10b981',RED='#ef4444',BLUE='#3b82f6',CYAN='#06b6d4';
+const PALETTE=[PURPLE,BLUE,GREEN,AMBER,RED,CYAN,'#f97316','#84cc16','#ec4899','#14b8a6'];
+
+// Overview: dept attrition
+const deptAttrData={labels:['Data & Analytics','Human Resources','Product Mgmt','Engineering','Finance','Sales','Operations','Legal','Marketing','Customer Success'],data:[0.272,0.260,0.252,0.218,0.206,0.199,0.198,0.195,0.195,0.190]};
+new Chart(document.getElementById('deptAttrChart'),{type:'bar',data:{labels:deptAttrData.labels,datasets:[{data:deptAttrData.data,backgroundColor:deptAttrData.data.map(v=>v>0.25?RED:v>0.22?AMBER:PURPLE),borderRadius:4,borderSkipped:false}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{callback:v=>(v*100).toFixed(0)+'%'}}}}});
+
+// Overview: region
+new Chart(document.getElementById('regionChart'),{type:'doughnut',data:{labels:['EMEA','Americas','APAC'],datasets:[{data:[792,779,775],backgroundColor:[PURPLE,BLUE,GREEN],borderWidth:2,borderColor:'#151422'}]},options:{responsive:true,maintainAspectRatio:false,cutout:'62%',plugins:{legend:{position:'bottom',labels:{padding:16,font:{size:11}}}}}});
+
+// Attrition: reasons
+new Chart(document.getElementById('reasonChart'),{type:'doughnut',data:{labels:['Voluntary','Performance','Layoff','Retirement'],datasets:[{data:[380,121,103,50],backgroundColor:[RED,AMBER,BLUE,GREEN],borderWidth:2,borderColor:'#151422'}]},options:{responsive:true,maintainAspectRatio:false,cutout:'62%',plugins:{legend:{position:'bottom',labels:{padding:16,font:{size:11}}}}}});
+
+// Attrition: dept2
+new Chart(document.getElementById('deptAttrChart2'),{type:'bar',data:{labels:deptAttrData.labels,datasets:[{data:deptAttrData.data,backgroundColor:deptAttrData.data.map(v=>v>0.25?RED:v>0.22?AMBER:PURPLE+'cc'),borderRadius:4,borderSkipped:false}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{callback:v=>(v*100).toFixed(0)+'%'}}}}});
+
+// Compensation: level salary
+new Chart(document.getElementById('levelSalChart'),{type:'bar',data:{labels:['VP','Director','Lead','Manager','Senior','Mid','Junior'],datasets:[{data:[310966,225743,173998,164032,141715,94744,60666],backgroundColor:[RED,AMBER,PURPLE,BLUE,GREEN,CYAN,'#84cc16'],borderRadius:6,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{ticks:{callback:v=>'$'+(v/1000).toFixed(0)+'K'}}}}});
+
+// Compensation: gender salary
+new Chart(document.getElementById('genderSalChart'),{type:'bar',data:{labels:['Male','Female'],datasets:[{data:[169909,170719],backgroundColor:[BLUE,PURPLE],borderRadius:6,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{min:168000,max:172000,ticks:{callback:v=>'$'+(v/1000).toFixed(0)+'K'}}}}});
+
+// Performance: ratings donut
+new Chart(document.getElementById('ratingChart'),{type:'doughnut',data:{labels:['Meets','Exceeds','Below','PIP'],datasets:[{data:[1208,404,276,115],backgroundColor:[BLUE,GREEN,AMBER,RED],borderWidth:2,borderColor:'#151422'}]},options:{responsive:true,maintainAspectRatio:false,cutout:'62%',plugins:{legend:{position:'bottom',labels:{padding:16,font:{size:11}}}}}});
+
+// Performance: dept score
+new Chart(document.getElementById('deptScoreChart'),{type:'bar',data:{labels:['Product Mgmt','Customer Success','Sales','HR','Operations','Engineering','Data & Analytics','Finance','Legal','Marketing'],datasets:[{data:[3.46,3.39,3.32,3.31,3.31,3.29,3.29,3.28,3.27,3.25],backgroundColor:PALETTE,borderRadius:4,borderSkipped:false}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{min:3.2,max:3.5}}}});
+
+// Diversity: gender
+new Chart(document.getElementById('genderChart'),{type:'doughnut',data:{labels:['Male','Female','Non-Binary'],datasets:[{data:[50.6,44.5,4.9],backgroundColor:[BLUE,PURPLE,AMBER],borderWidth:2,borderColor:'#151422'}]},options:{responsive:true,maintainAspectRatio:false,cutout:'62%',plugins:{legend:{position:'bottom',labels:{padding:16,font:{size:11}}}}}});
+
+// Diversity: work mode
+new Chart(document.getElementById('workModeChart'),{type:'doughnut',data:{labels:['Hybrid','Remote','On-site'],datasets:[{data:[1153,653,540],backgroundColor:[GREEN,CYAN,PURPLE],borderWidth:2,borderColor:'#151422'}]},options:{responsive:true,maintainAspectRatio:false,cutout:'62%',plugins:{legend:{position:'bottom',labels:{padding:16,font:{size:11}}}}}});
+</script>
+</body>
+</html>
