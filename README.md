@@ -1,5 +1,14 @@
 # HR Workforce Analytics — Global
 
+## 🚀 Live Interactive Dashboard
+
+**[View Dashboard →](https://malleshwaric.github.io/hr-workforce-analytics/dashboard.html)**
+
+Fully interactive — charts, tabs, KPI cards. No login required, opens in any browser.
+
+---
+
+
 End-to-end HR analytics project simulating a global tech company's workforce data: headcount, attrition, compensation, performance reviews, and diversity. Built to demonstrate SQL, Python, and Power BI skills for a Data Analyst portfolio.
 
 ## Project Overview
