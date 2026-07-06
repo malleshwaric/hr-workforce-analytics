@@ -1,7 +1,6 @@
--- ============================================================
--- HR Workforce Analytics (Global)
--- Business Analysis Queries
--- ============================================================
+-- HR Workforce Analytics
+-- Analysis Queries
+
 
 -- 1. Overall headcount and attrition summary
 SELECT

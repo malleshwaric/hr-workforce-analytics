@@ -9,7 +9,7 @@ Fully interactive — charts, tabs, KPI cards. No login required, opens in any b
 ---
 
 
-End-to-end HR analytics project simulating a global tech company's workforce data: headcount, attrition, compensation, performance reviews, and diversity. Built to demonstrate SQL, Python, and Power BI skills for a Data Analyst portfolio.
+HR analytics project covering a global tech company workforce — headcount, attrition, compensation, performance reviews, and diversity across Americas, EMEA, and APAC.
 
 ## Project Overview
 
@@ -22,7 +22,7 @@ An HR team wants to understand:
 
 ## Tech Stack
 
-- **Python** (pandas, numpy, faker) — synthetic data generation
+- **Python** (pandas, numpy, faker) — data generation and preprocessing
 - **SQL** (MySQL/PostgreSQL-compatible) — schema + analysis queries
 - **Power BI** — DAX measures and dashboard guide
 
@@ -100,7 +100,6 @@ See `sql/analysis_queries.sql` for the full query set.
 - A meaningful gender pay gap exists at Senior+ levels — visible in the compensation page
 - ~20% of active employees have a "Promote" manager recommendation but no recent salary bump
 
-## Author
+## About
 
-Malleshwari C — Data Analyst portfolio project.
-See related: [ShopKart India](../shopkart-india-analytics) | [SwiftMove India](../swiftmove-india-analytics) | [Loan Risk India](../loan-risk-india) | [UPI Finance India](../upi-finance-india)
+Built by Malleshwari C · [GitHub](https://github.com/malleshwaric)

@@ -1,7 +1,6 @@
--- ============================================================
--- HR Workforce Analytics (Global)
--- Database Schema
--- ============================================================
+-- HR Workforce Analytics
+-- Schema
+
 
 DROP TABLE IF EXISTS performance_reviews;
 DROP TABLE IF EXISTS salary_history;

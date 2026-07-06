@@ -1,11 +1,8 @@
-"""
-HR Workforce Analytics (Global)
-Synthetic Data Generator
+# generate_data.py
+# Generates employee, salary, and performance data for the HR analytics project.
+# Run: python generate_data.py
+# Requires: pip install faker numpy pandas
 
-Usage:
-    pip install faker numpy pandas
-    python generate_data.py
-"""
 
 import random
 import os
