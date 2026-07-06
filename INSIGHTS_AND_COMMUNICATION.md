@@ -143,29 +143,3 @@ At a $169K average salary and 654 exits, the cost of attrition is approximately:
 
 ---
 
-## 5. Interview Talking Points
-
-### How to describe this project in an interview
-
-**The 60-second version:**
-> "I built a global HR workforce analytics project for a simulated 3,000-person tech company across 12 offices in Americas, EMEA, and APAC — 4 years of employee lifecycle data including salary history and annual performance reviews. The most impactful finding is the relationship between attrition and performance in the Data & Analytics team — they have both the highest attrition at 27.2% AND below-average performance scores. That combination signals a talent exodus cycle that needs urgent intervention. I also found no gender pay gap — women earn slightly more on average — which I framed as both genuine good news and an opportunity to use pay equity as a recruiting differentiator."
-
-**Key metrics to memorise:**
-- 2,346 active employees, 21.8% attrition
-- 58.1% voluntary exits
-- Data & Analytics: 27.2% attrition (highest)
-- $169K average salary
-- No pay gap: women +$810 above men
-- Hybrid: 49.1% | Remote: 27.8%
-- Americas / EMEA / APAC: 779 / 792 / 775
-
-**Technical questions you might be asked:**
-
-*"How did you calculate attrition rate in SQL?"*
-> "Attrition rate = count of employees where employment_status != 'Active' divided by total count in the table, grouped by department. The key is the denominator — total_ever_employed, not just current headcount — because you want departures as a share of everyone who was ever in that role, not just survivors."
-
-*"How would you build a predictive attrition model on top of this dataset?"*
-> "I'd create a binary target variable — 1 if terminated voluntarily, 0 otherwise — and use features like tenure, performance score trend (improving vs declining), salary growth rate vs peers, time since last promotion, and manager change frequency. A logistic regression gives you interpretable coefficients so you can explain to HR why someone is flagged as high attrition risk."
-
-*"The gender pay gap analysis — what's the limitation of your approach?"*
-> "The aggregate comparison hides composition effects — if more women are at junior levels simply because they joined more recently, the aggregate could show equality even when within-level gaps exist. The correct approach is a multivariate regression controlling for level, tenure, department, and performance rating. I flagged this in my recommendations as the next analytical step."
